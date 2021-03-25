@@ -1,0 +1,14 @@
+[package]
+name = "mnemonic"
+version = "0.1.0"
+authors = ["Jeroen van den Hout <jlvandenhout@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+itertools = "0.10.0"
+iota-core = { git = "https://github.com/iotaledger/iota.rs", branch = "dev" }
+iota-client = { git = "https://github.com/iotaledger/iota.rs", branch = "dev" }
+iota-crypto = { git = "https://github.com/iotaledger/crypto.rs", branch = "dev", features = ["bip39", "bip39-en", "blake2b", "ed25519", "random", "slip10"]}
+tokio = { version = "1.1", features = ["full"] }

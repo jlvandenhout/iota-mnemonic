@@ -26,5 +26,5 @@ cargo run
 ```
 
 ## Todo
-[] Give the option to provide a mnemonic instead of randomly creating one.
-[] Give the option to provide the account and address indexes instead of hardcoding 0.
+- [ ] Give the option to provide a mnemonic instead of randomly creating one.
+- [ ] Give the option to provide the account and address indexes instead of hardcoding 0.

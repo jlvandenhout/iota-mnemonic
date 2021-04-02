@@ -27,9 +27,9 @@ pub fn random_mnemonic() -> String {
 
 // Derive the private key from the mnemonic, the account index and the address index using SLIP-0010
 // See: https://github.com/satoshilabs/slips/blob/master/slip-0010.md
-pub fn private_key_from_mnemonic(mnemonic: String, account_index: u32, address_index: u32) -> String {
+pub fn private_key_from_mnemonic(mnemonic: &String, account_index: u32, address_index: u32) -> String {
     let mut seed = [0u8; 64];
-    mnemonic_to_seed(&mnemonic.as_str(), &"", &mut seed);
+    mnemonic_to_seed(mnemonic.as_str(), &"", &mut seed);
 
     let curve = Curve::Ed25519;
     let chain = Chain::from_u32_hardened(vec![44, 4218, account_index, false as u32, address_index]);
@@ -43,7 +43,7 @@ pub fn private_key_from_mnemonic(mnemonic: String, account_index: u32, address_i
 
 
 // Derive the public key from the private key
-pub fn public_key_from_private_key(private_key: String) -> String {
+pub fn public_key_from_private_key(private_key: &String) -> String {
     let bytes = hex::decode(private_key).unwrap().try_into().unwrap();
     let key = SecretKey::from_le_bytes(bytes).unwrap();
 
@@ -53,7 +53,7 @@ pub fn public_key_from_private_key(private_key: String) -> String {
 
 
 // Derive the address by hashing the public key using BLAKE2b256
-pub fn ed25519_address_from_public_key(public_key: String) -> String {
+pub fn ed25519_address_from_public_key(public_key: &String) -> String {
     let bytes = hex::decode(public_key).unwrap();
     let hash = Blake2b256::digest(&bytes);
     Ed25519Address::new(hash.into()).to_string()
@@ -61,7 +61,7 @@ pub fn ed25519_address_from_public_key(public_key: String) -> String {
 
 
 // Derive the human readable address using Bech32
-pub fn bech32_address_from_ed25519_address(ed25519_address: String, hrp: String) -> String {
+pub fn bech32_address_from_ed25519_address(ed25519_address: &String, hrp: &String) -> String {
     let address = Ed25519Address::from_str(&ed25519_address.as_str()).unwrap();
     address.to_bech32(hrp.as_str())
 }

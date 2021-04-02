@@ -27,5 +27,5 @@ cargo run
 
 ## Todo
 - [x] Give the option to provide a mnemonic instead of randomly creating one.
-- [ ] Give the option to provide a custom bech32 human readable part (or switch between test and mainnet).
-- [ ] Give the option to provide the account and address indexes instead of hardcoding 0.
+- [x] Give the option to provide a custom bech32 human readable part (or switch between test and mainnet).
+- [x] Give the option to provide the account and address indexes instead of hardcoding 0.

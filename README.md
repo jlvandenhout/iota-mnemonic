@@ -1,6 +1,6 @@
 # mnemonic
 
-A tool to create a random [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) mnemonic and derive its private key, public key, Ed25519 address and [Bech32](https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki) address.
+A tool to create random [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) mnemonics and derive private keys, public keys, Ed25519 addresses and [Bech32](https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki) addresses from mnemonics, account indexes and address indexes.
 
 ## Prerequisites
 To use the tool, you need the following:
@@ -21,9 +21,16 @@ cargo build
 ```
 
 ## How to run
+To create a random mnemonic and derive its keys and addresses, run:
 ```bash
 cargo run
 ```
+
+To see configuration options, run:
+```bash
+cargo run -- --help
+```
+
 
 ## Todo
 - [x] Give the option to provide a mnemonic instead of randomly creating one.

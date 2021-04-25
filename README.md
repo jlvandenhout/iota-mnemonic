@@ -15,7 +15,7 @@ rustup update stable
 
 ## How to build
 ```bash
-git clone https://github.com/jlvandenhout/mnemonic
+git clone https://github.com/jlvandenhout/iota-mnemonic
 cd mnemonic
 cargo build
 ```

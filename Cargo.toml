@@ -1,5 +1,5 @@
 [package]
-name = "mnemonic"
+name = "iota-mnemonic"
 version = "0.1.0"
 authors = ["Jeroen van den Hout <jlvandenhout@gmail.com>"]
 edition = "2018"

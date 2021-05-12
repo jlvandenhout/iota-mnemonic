@@ -4,8 +4,8 @@ A tool to create random [BIP-0039](https://github.com/bitcoin/bips/blob/master/b
 
 ## Prerequisites
 To use the tool, you need the following:
-- [Rust](https://www.rust-lang.org/tools/install)
-- (Optional) An IDE that supports Rust autocompletion. We recommend [Visual Studio Code](https://code.visualstudio.com/Download) with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension
+- [Rust](https://www.rust-lang.org/tools/install).
+- A text editor. We recommend [Visual Studio Code](https://code.visualstudio.com/Download) with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.
 
 We also recommend updating Rust to the [latest stable version](https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date):
 

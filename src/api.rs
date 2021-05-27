@@ -1,5 +1,6 @@
 use std::{convert::TryInto, str::FromStr};
 
+use iota_client::bee_message::address::Address;
 use iota_client::bee_message::address::Ed25519Address;
 use crypto::{
     hashes::{
@@ -62,6 +63,6 @@ pub fn ed25519_address_from_public_key(public_key: &String) -> String {
 
 // Derive the human readable address using Bech32
 pub fn bech32_address_from_ed25519_address(ed25519_address: &String, hrp: &String) -> String {
-    let address = Ed25519Address::from_str(&ed25519_address.as_str()).unwrap();
+    let address = Address::Ed25519(Ed25519Address::from_str(&ed25519_address.as_str()).unwrap());
     address.to_bech32(hrp.as_str())
 }

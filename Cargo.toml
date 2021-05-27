@@ -5,7 +5,7 @@ authors = ["Jeroen van den Hout <jlvandenhout@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-iota-core = { git = "https://github.com/iotaledger/iota.rs", branch = "dev" }
+iota-client = { git = "https://github.com/iotaledger/iota.rs", branch = "dev" }
 iota-crypto = { git = "https://github.com/iotaledger/crypto.rs", branch = "dev", features = ["bip39", "bip39-en", "blake2b", "ed25519", "slip10"]}
 hex = "0.4.3"
 clap = { version = "3.0.0-beta.1", features = ["yaml"] }

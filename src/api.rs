@@ -1,6 +1,6 @@
 use std::{convert::TryInto, str::FromStr};
 
-use iota::Ed25519Address;
+use iota_client::bee_message::address::Ed25519Address;
 use crypto::{
     hashes::{
         Digest,

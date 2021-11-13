@@ -1,6 +1,4 @@
 mod api;
-use clap;
-
 
 fn main() {
     let app = clap::app_from_crate!()
@@ -30,9 +28,13 @@ fn main() {
         );
     let matches = app.get_matches();
 
-    let mnemonic = matches.value_of_t("mnemonic").unwrap_or(api::random_mnemonic());
+    let mnemonic = matches
+        .value_of_t("mnemonic")
+        .unwrap_or_else(|_| api::random_mnemonic());
     let seed = api::seed_from_mnemonic(&mnemonic);
-    let hrp = matches.value_of_t("hrp").unwrap_or(String::from("atoi"));
+    let hrp = matches
+        .value_of_t("hrp")
+        .unwrap_or_else(|_| String::from("atoi"));
     let account_index = matches.value_of_t("account").unwrap_or(0);
     let address_index = matches.value_of_t("address").unwrap_or(0);
 

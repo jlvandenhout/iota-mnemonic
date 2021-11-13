@@ -31,23 +31,28 @@ fn main() {
     let matches = app.get_matches();
 
     let mnemonic = matches.value_of_t("mnemonic").unwrap_or(api::random_mnemonic());
+    let seed = api::seed_from_mnemonic(&mnemonic);
     let hrp = matches.value_of_t("hrp").unwrap_or(String::from("atoi"));
     let account_index = matches.value_of_t("account").unwrap_or(0);
     let address_index = matches.value_of_t("address").unwrap_or(0);
 
-    println!("BIP-0039 mnemonic... {}", mnemonic);
-    println!("Bech32 human readable part... {}", hrp);
-    println!("Account index... {}", account_index);
-    println!("Address index... {}", address_index);
+    println!("\nINPUT");
+    println!("BIP-0039 mnemonic: {}", mnemonic);
+    println!("Hex encoded binary seed: {}", seed);
 
-    let private_key = api::private_key_from_mnemonic(&mnemonic, account_index, address_index);
+    println!("\nCONFIGURATION");
+    println!("Bech32 human readable part: {}", hrp);
+    println!("Account index: {}", account_index);
+    println!("Address index: {}", address_index);
+
+    let private_key = api::private_key_from_seed(&seed, account_index, address_index);
     let public_key = api::public_key_from_private_key(&private_key);
     let ed25519_address = api::ed25519_address_from_public_key(&public_key);
     let bech32_address = api::bech32_address_from_ed25519_address(&ed25519_address, &hrp);
 
-
-    println!("Private key... {}", private_key);
-    println!("Public key... {}", public_key);
-    println!("Ed25519 address... {}", ed25519_address);
-    println!("Bech32 address... {}", bech32_address);
+    println!("\nOUTPUT");
+    println!("Hex encoded private key: {}", private_key);
+    println!("Hex encoded public key: {}", public_key);
+    println!("Ed25519 address: {}", ed25519_address);
+    println!("Bech32 address: {}", bech32_address);
 }

@@ -33,15 +33,15 @@ jobs:
         include:
           - name: linux
             os: ubuntu-latest
-            artifact_name: target/release/iota-mnemonic
+            asset_path: target/release/iota-mnemonic
             asset_name: iota-mnemonic-linux
           - name: windows
             os: windows-latest
-            artifact_name: target/release/iota-mnemonic.exe
+            asset_path: target/release/iota-mnemonic.exe
             asset_name: iota-mnemonic-windows.exe
           - name: macos
             os: macos-latest
-            artifact_name: target/release/iota-mnemonic
+            asset_path: target/release/iota-mnemonic
             asset_name: iota-mnemonic-macos
     steps:
       - uses: actions/checkout@v1
@@ -54,7 +54,11 @@ jobs:
         with:
           command: build
           args: '--release --locked'
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ matrix.asset_name }}
-          path: ${{ matrix.artifact_name }}
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ matrix.asset_path }}
+          asset_name: ${{ matrix.asset_name }}
+          asset_content_type: application/octet-stream

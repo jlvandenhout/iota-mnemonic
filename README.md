@@ -40,11 +40,11 @@ cargo run -- --help
 
 ## Version history
 
-### 0.2.0
+### v0.2.0
 
 - Changed the commandline output to include the Hex encoded binary seed representation.
 
-### 0.1.0
+### v0.1.0
 
 - Added the option to provide a mnemonic instead of randomly creating one.
 - Added the option to provide a custom bech32 human readable part.
